@@ -6,6 +6,7 @@ public class Flight : Base
 {
     public DateTime Departure { get; private set; }
     public DateTime Arrival { get; private set; }
+
     public Guid FromAirportId { get; private set; }
     public Guid ToAirportId { get; private set; }
     public Guid AircraftId { get; private set; }
@@ -19,13 +20,11 @@ public class Flight : Base
 
     private Flight() { }
 
-    public Flight(DateTime departure, DateTime arrival, Airport fromAirport, Airport toAirport)
+    public Flight(DateTime departure, DateTime arrival)
     {
         Id = Guid.NewGuid();
         Departure = departure;
         Arrival = arrival;
-        FromAirport = fromAirport;
-        ToAirport = toAirport;
     }
 
     public void AddTicket(Ticket ticket) 

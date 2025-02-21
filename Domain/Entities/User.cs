@@ -4,19 +4,19 @@ namespace Domain.Entities;
 
 public class User : Base
 {
-    public string Email { get; private set; } = string.Empty;
-    public string Password { get; private set; } = string.Empty;
-    public string UserName { get; private set; } = string.Empty;
-    public string PhoneNumber { get; private set; } = string.Empty;
-    public string Role { get; private set; } = string.Empty;
-    public DateTime CreatedAt { get; private set; } = default;
+    public string? Email { get; private set; }
+    public string? Password { get; private set; }
+    public string? UserName { get; private set; }
+    public string? PhoneNumber { get; private set; }
+    public string? Role { get; private set; }
+    public DateTime CreatedAt { get; private set; }
 
     private readonly List<Booking> _bookings = [];
     public IReadOnlyCollection<Booking> Bookings => _bookings.AsReadOnly();
 
     private User() { }
 
-    public User(string email, string password, string userName, string phoneNumber, string role)
+    public User(string email, string password, string userName, string phoneNumber, string role = "User")
     {
         Id = Guid.NewGuid();
         Email = email;

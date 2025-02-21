@@ -15,16 +15,16 @@ public class Aircraft : Base
 
     private Aircraft() { }
 
-    public Aircraft(string model,  int capacity)
+    public Aircraft(string model, int capacity)
     {
         Id = Guid.NewGuid();
         Model = model;
         Capacity = capacity;
     }
 
-    public void AddTicket(Flight flight)
+    public void AddFlight(Flight flight)
         => _flights.Add(flight ?? throw new ArgumentNullException(nameof(flight)));
 
-    public void RemoveTicket(Flight flight)
+    public void RemoveFlight(Flight flight)
         => _flights.Remove(flight ?? throw new ArgumentNullException(nameof(flight)));
 }

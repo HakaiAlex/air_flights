@@ -7,8 +7,8 @@ public class Airline : Base
     public string? Name { get; private set; }
     public string? Country { get; private set; }
 
-    private readonly List<Airline?> _airlines = [];
-    public IReadOnlyCollection<Airline?> Airlines => _airlines.AsReadOnly();
+    private readonly List<Aircraft?> _aircrafts = [];
+    public IReadOnlyCollection<Aircraft?> Aircrafts => _aircrafts.AsReadOnly();
 
     private Airline() { }
 
@@ -19,9 +19,9 @@ public class Airline : Base
         Country = country;
     }
 
-    public void AddAirline(Airline airline)
-        => _airlines.Add(airline ?? throw new ArgumentNullException(nameof(airline)));
+    public void AddAircraft(Aircraft aircraft)
+        => _aircrafts.Add(aircraft ?? throw new ArgumentNullException(nameof(aircraft)));
 
-    public void RemoveAirline(Airline airline)
-        => _airlines.Remove(airline ?? throw new ArgumentNullException(nameof(airline)));
+    public void RemoveAircraft(Aircraft aircraft)
+        => _aircrafts.Remove(aircraft ?? throw new ArgumentNullException(nameof(aircraft)));
 }

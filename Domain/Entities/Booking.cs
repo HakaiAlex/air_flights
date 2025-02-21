@@ -9,8 +9,6 @@ public class Booking : Base
     public string Status { get; private set; } = string.Empty;
     public DateTime CreatedAt { get; private set; } = default;
 
-    public Payment? Payment { get; private set; }
-
     public Guid UserId { get; private set; }
     public User? User { get; private set; }
 
@@ -18,13 +16,12 @@ public class Booking : Base
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
 
     private Booking() { }
-    public Booking(string fullName, string status, DateTime createdAt, Payment payment)
+    public Booking(string fullName, string status, DateTime createdAt)
     {
         Id = Guid.NewGuid();
         FullName = fullName;
         Status = status;
         CreatedAt = createdAt;
-        Payment = payment;
     }
 
     public void AddTicket(Ticket ticket) 
