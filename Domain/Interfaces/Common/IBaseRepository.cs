@@ -9,8 +9,6 @@ public interface IBaseRepository<T> : IDisposable
     Task<T> GetByIdAsync(Guid id);
     Task<IEnumerable<T>> GetAllAsync();
     Task AddAsync(T entity);
-    Task Update(T entity);
+    Task UpdateAsync(T entity);
     Task DeleteAsync(Guid id);
-    Task Create(T entity);
-    Task Save();
 }

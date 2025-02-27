@@ -3,14 +3,9 @@ using Domain.Interfaces;
 
 namespace Application.Repositories;
 
-public class UserRepository : IUserRepository
+public class PaymentRepository : IPaymentRepository
 {
-    public Task AddAsync(User entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Create(User entity)
+    public Task AddAsync(Payment entity)
     {
         throw new NotImplementedException();
     }
@@ -25,27 +20,17 @@ public class UserRepository : IUserRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<User>> GetAllAsync()
+    public Task<IEnumerable<Payment>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<User> GetByIdAsync(Guid id)
+    public Task<Payment> GetByIdAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<User> GetUserByEmailAsync(string email)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Save()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Update(User entity)
+    public Task UpdateAsync(Payment entity)
     {
         throw new NotImplementedException();
     }

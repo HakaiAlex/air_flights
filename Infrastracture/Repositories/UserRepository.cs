@@ -3,14 +3,9 @@ using Domain.Interfaces;
 
 namespace Application.Repositories;
 
-public class AirlineRepository : IAirlineRepository
+public class UserRepository : IUserRepository
 {
-    public Task AddAsync(Airline entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Create(Airline entity)
+    public Task AddAsync(User entity)
     {
         throw new NotImplementedException();
     }
@@ -25,27 +20,22 @@ public class AirlineRepository : IAirlineRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Aircraft>> GetAircraftById(Guid id)
+    public Task<IEnumerable<User>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Airline>> GetAllAsync()
+    public Task<User> GetByIdAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<Airline> GetByIdAsync(Guid id)
+    public Task<User> GetUserByEmailAsync(string email)
     {
         throw new NotImplementedException();
     }
 
-    public Task Save()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Update(Airline entity)
+    public Task UpdateAsync(User entity)
     {
         throw new NotImplementedException();
     }

@@ -3,14 +3,9 @@ using Domain.Interfaces;
 
 namespace Application.Repositories;
 
-public class AirportRepository : IAirportRepository
+public class FlightRepository : IFlightRepository
 {
-    public Task AddAsync(Airport entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Create(Airport entity)
+    public Task AddAsync(Flight entity)
     {
         throw new NotImplementedException();
     }
@@ -25,27 +20,22 @@ public class AirportRepository : IAirportRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Airport>> GetAllAsync()
+    public Task<IEnumerable<Flight>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
-    public Task<Airport> GetByIdAsync(Guid id)
+    public Task<Flight> GetByIdAsync(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Flight>> GetFlightsById(Guid id)
+    public Task<IEnumerable<Ticket>> GetTicketsById(Guid id)
     {
         throw new NotImplementedException();
     }
 
-    public Task Save()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task Update(Airport entity)
+    public Task UpdateAsync(Flight entity)
     {
         throw new NotImplementedException();
     }
