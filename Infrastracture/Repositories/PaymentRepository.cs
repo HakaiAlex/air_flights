@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Application.Repositories;
+namespace Infrastracture.Repositories;
 
 public class PaymentRepository : IPaymentRepository
 {
@@ -15,17 +15,22 @@ public class PaymentRepository : IPaymentRepository
         throw new NotImplementedException();
     }
 
-    public void Dispose()
-    {
-        throw new NotImplementedException();
-    }
-
     public Task<IEnumerable<Payment>> GetAllAsync()
     {
         throw new NotImplementedException();
     }
 
     public Task<Payment> GetByIdAsync(Guid id)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<Payment> GetPaymentByBookingIdAsync(Guid bookingId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Payment>> GetPaymentsByUserIdAsync(Guid userId)
     {
         throw new NotImplementedException();
     }

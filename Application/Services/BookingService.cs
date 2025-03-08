@@ -1,39 +1,15 @@
-﻿using Domain.Entities;
+﻿using Application.Services.Common;
+using Domain.Entities;
 using Domain.Interfaces;
 
 namespace Application.Services;
 
-public class BookingService(IBookingRepository bookingRepository)
+public class BookingService(IBookingRepository bookingRepository) : BaseService<Booking>(bookingRepository)
 {
-    private IBookingRepository _bookingRepository = bookingRepository;
+    private readonly IBookingRepository _bookingRepository = bookingRepository;
 
-    public Task AddBookingAsync(IBookingRepository entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteBookingAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<IBookingRepository>> GetBookingsAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IBookingRepository> GetBookingByIdAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateBookingAsync(IBookingRepository entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<Ticket>> GetAllTicketsByBookingId(Guid Id)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<Booking>> GetBookingsByUserIdAsync(Guid userId) =>
+        await _bookingRepository.GetBookingsByUserIdAsync(userId);
+    public async Task<IEnumerable<Booking>> GetBookingsByDateAsync(DateTime date) =>
+        await _bookingRepository.GetBookingsByDateAsync(date);
 }

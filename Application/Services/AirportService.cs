@@ -1,33 +1,15 @@
-﻿using Domain.Interfaces;
+﻿using Application.Services.Common;
+using Domain.Entities;
+using Domain.Interfaces;
 
 namespace Application.Services;
 
-public class AirportService(IAirportRepository airportRepository)
+public class AirportService(IAirportRepository airportRepository) : BaseService<Airport>(airportRepository)
 {
     private readonly IAirportRepository _airportRepository = airportRepository;
 
-    public Task AddAirportAsync(IAirportRepository entity)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task DeleteAirportAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<IAirportRepository>> GetAirportsAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IAirportRepository> GetAirportByIdAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateAirportAsync(IAirportRepository entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<Airport> GetAirportByCodeAsync(string code) =>
+        await _airportRepository.GetAirportByCodeAsync(code);
+    public async Task<IEnumerable<Airport>> GetAirportsByCityAsync(string city) =>
+        await _airportRepository.GetAirportsByCityAsync(city);
 }

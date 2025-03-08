@@ -1,33 +1,17 @@
-﻿using Domain.Interfaces;
+﻿using Application.Services.Common;
+using Domain.Entities;
+using Domain.Interfaces;
+using Domain.Interfaces.Common;
 
 namespace Application.Services;
 
-public class PaymentService(IPaymentRepository paymentRepository)
+public class PaymentService(IPaymentRepository paymentRepository) : BaseService<Payment>(paymentRepository)
 {
     private readonly IPaymentRepository _paymentRepository = paymentRepository;
 
-    public Task AddPaymentAsync(IPaymentRepository entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<Payment> GetPaymentByBookingIdAsync(Guid bookingId) =>
+        await _paymentRepository.GetPaymentByBookingIdAsync(bookingId);
 
-    public Task DeletePaymentAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<IPaymentRepository>> GetPaymentsAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IPaymentRepository> GetPaymentByIdAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdatePaymentAsync(IPaymentRepository entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<Payment>> GetPaymentsByUserIdAsync(Guid userId) =>
+        await _paymentRepository.GetPaymentsByUserIdAsync(userId);
 }

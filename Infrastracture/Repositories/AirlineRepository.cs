@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Application.Repositories;
+namespace Infrastracture.Repositories;
 
 public class AirlineRepository : IAirlineRepository
 {
@@ -15,12 +15,7 @@ public class AirlineRepository : IAirlineRepository
         throw new NotImplementedException();
     }
 
-    public void Dispose()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<Aircraft>> GetAircraftById(Guid id)
+    public Task<Airline> GetAirlineByNameAsync(string name)
     {
         throw new NotImplementedException();
     }

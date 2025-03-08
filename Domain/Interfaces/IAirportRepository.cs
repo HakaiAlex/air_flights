@@ -6,5 +6,6 @@ namespace Domain.Interfaces;
 
 public interface IAirportRepository : IBaseRepository<Airport>
 {
-    Task<IEnumerable<Flight>> GetFlightsById(Guid id);
+    Task<Airport> GetAirportByCodeAsync(string code);
+    Task<IEnumerable<Airport>> GetAirportsByCityAsync(string city);
 }

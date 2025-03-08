@@ -1,33 +1,23 @@
-﻿using Domain.Interfaces;
+﻿using Application.Services.Common;
+using Domain.Entities;
+using Domain.Interfaces;
 
 namespace Application.Services;
 
-public class PassengerService(IPassengerRepository passengerRepository)
+public class PassengerService(IPassengerRepository passengerRepository) 
+    : BaseService<Passenger>(passengerRepository)
 {
     private readonly IPassengerRepository _passengerRepository = passengerRepository;
 
-    public Task AddPassengerAsync(IPassengerRepository entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<string> GetFullNameById(Guid id) =>
+        await _passengerRepository.GetFullNameById(id);
 
-    public Task DeletePassengerAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<string> GetPassportById(Guid id) =>
+        await _passengerRepository.GetPassportById(id);
 
-    public Task<IEnumerable<IPassengerRepository>> GetPassengersAsync()
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<Passenger> GetPassengerByDocumentNumberAsync(string documentNumber) =>
+        await _passengerRepository.GetPassengerByDocumentNumberAsync(documentNumber);
 
-    public Task<IPassengerRepository> GetPassengerByIdAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdatePassengerAsync(IPassengerRepository entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<Passenger>> GetPassengersByUserIdAsync(Guid userId) =>
+        await _passengerRepository.GetPassengersByUserIdAsync(userId);
 }

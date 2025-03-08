@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Application.Repositories;
+namespace Infrastracture.Repositories;
 
 public class PassengerRepository : IPassengerRepository
 {
@@ -11,11 +11,6 @@ public class PassengerRepository : IPassengerRepository
     }
 
     public Task DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Dispose()
     {
         throw new NotImplementedException();
     }
@@ -35,17 +30,17 @@ public class PassengerRepository : IPassengerRepository
         throw new NotImplementedException();
     }
 
+    public Task<Passenger> GetPassengerByDocumentNumberAsync(string documentNumber)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Passenger>> GetPassengersByUserIdAsync(Guid userId)
+    {
+        throw new NotImplementedException();
+    }
+
     public Task<string> GetPassportById(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<Ticket>> GetTicketsById(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<Ticket>> GetTicketsByPassport(string passport)
     {
         throw new NotImplementedException();
     }

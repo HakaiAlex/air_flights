@@ -7,6 +7,6 @@ public interface IPassengerRepository : IBaseRepository<Passenger>
 {
     Task<string> GetFullNameById(Guid id);
     Task<string> GetPassportById(Guid id);
-    Task<IEnumerable<Ticket>> GetTicketsById(Guid id);
-    Task<IEnumerable<Ticket>> GetTicketsByPassport(string passport);
+    Task<Passenger> GetPassengerByDocumentNumberAsync(string documentNumber);
+    Task<IEnumerable<Passenger>> GetPassengersByUserIdAsync(Guid userId);
 }

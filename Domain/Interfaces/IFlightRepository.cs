@@ -5,5 +5,6 @@ namespace Domain.Interfaces;
 
 public interface IFlightRepository : IBaseRepository<Flight>
 {
-    Task<IEnumerable<Ticket>> GetTicketsById(Guid id);
+    Task<IEnumerable<Flight>> GetFlightsByDateAsync(DateTime date);
+    Task<IEnumerable<Flight>> GetFlightsByAirportAsync(Guid airportId);
 }

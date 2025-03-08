@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Application.Repositories;
+namespace Infrastracture.Repositories;
 
 public class FlightRepository : IFlightRepository
 {
@@ -11,11 +11,6 @@ public class FlightRepository : IFlightRepository
     }
 
     public Task DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Dispose()
     {
         throw new NotImplementedException();
     }
@@ -30,7 +25,12 @@ public class FlightRepository : IFlightRepository
         throw new NotImplementedException();
     }
 
-    public Task<IEnumerable<Ticket>> GetTicketsById(Guid id)
+    public Task<IEnumerable<Flight>> GetFlightsByAirportAsync(Guid airportId)
+    {
+        throw new NotImplementedException();
+    }
+
+    public Task<IEnumerable<Flight>> GetFlightsByDateAsync(DateTime date)
     {
         throw new NotImplementedException();
     }

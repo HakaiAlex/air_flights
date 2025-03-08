@@ -3,7 +3,7 @@ using Domain.Entities;
 
 namespace Domain.Interfaces.Common;
 
-public interface IBaseRepository<T> : IDisposable
+public interface IBaseRepository<T>
     where T : class
 {
     Task<T> GetByIdAsync(Guid id);

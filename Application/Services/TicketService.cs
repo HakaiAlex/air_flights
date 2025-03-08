@@ -1,33 +1,16 @@
-﻿using Domain.Interfaces;
+﻿using Application.Services.Common;
+using Domain.Entities;
+using Domain.Interfaces;
 
 namespace Application.Services;
 
-public class TicketService(ITicketRepository ticketRepository)
+public class TicketService(ITicketRepository ticketRepository) : BaseService<Ticket>(ticketRepository)
 {
     private readonly ITicketRepository _ticketRepository = ticketRepository;
 
-    public Task AddTicketAsync(ITicketRepository entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<Ticket>> GetTicketsByBookingIdAsync(Guid bookingId) =>
+        await _ticketRepository.GetTicketsByBookingIdAsync(bookingId);
 
-    public Task DeleteTicketAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<IEnumerable<ITicketRepository>> GetTicketsAsync()
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task<ITicketRepository> GetTicketByIdAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public Task UpdateTicketAsync(ITicketRepository entity)
-    {
-        throw new NotImplementedException();
-    }
+    public async Task<IEnumerable<Ticket>> GetTicketsByPassengerIdAsync(Guid passengerId) =>
+        await _ticketRepository.GetTicketsByPassengerIdAsync(passengerId);
 }

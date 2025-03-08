@@ -1,7 +1,7 @@
 ﻿using Domain.Entities;
 using Domain.Interfaces;
 
-namespace Application.Repositories;
+namespace Infrastracture.Repositories;
 
 public class UserRepository : IUserRepository
 {
@@ -11,11 +11,6 @@ public class UserRepository : IUserRepository
     }
 
     public Task DeleteAsync(Guid id)
-    {
-        throw new NotImplementedException();
-    }
-
-    public void Dispose()
     {
         throw new NotImplementedException();
     }
