@@ -11,5 +11,5 @@ public class FlightService(IFlightRepository flightRepository) : BaseService<Fli
     public async Task<IEnumerable<Flight>> GetFlightsByDateAsync(DateTime date) =>
         await _flightRepository.GetFlightsByDateAsync(date);
     public async Task<IEnumerable<Flight>> GetFlightsByAirportAsync(Guid airportId) =>
-        await _flightRepository.GetFlightsByAirportAsync(airportId);
+        await _flightRepository.GetFlightsByAirportIdAsync(airportId);
 }
