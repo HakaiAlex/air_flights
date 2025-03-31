@@ -4,12 +4,12 @@ namespace Domain.Entities;
 
 public class Booking : Base
 {
-    public string FullName { get; private set; } = string.Empty;
-    public string Status { get; private set; } = string.Empty;
-    public DateTime CreatedAt { get; private set; } = default;
+    public required string FullName { get; init; }
+    public required string Status { get; init; }
+    public required DateTime CreatedAt { get; init; }
 
     public Guid UserId { get; private set; }
-    public User? User { get; private set; }
+    public User User { get; private set; } = null!;
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();

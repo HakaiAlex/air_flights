@@ -4,14 +4,14 @@ namespace Domain.Entities;
 
 public class Aircraft : Base
 {
-    public string? Model { get; private set; }
-    public int Capacity { get; private set; }
+    public required string Model { get; init; }
+    public required int Capacity { get; init; }
     
-    public Guid? AirlineId { get; private set; }
-    public Airline? Airline { get; private set; }
+    public Guid AirlineId { get; private set; }
+    public Airline Airline { get; private set; } = null!;
 
-    private readonly List<Flight?> _flights = [];
-    public IReadOnlyCollection<Flight?> Flights => _flights.AsReadOnly();
+    private readonly List<Flight> _flights = [];
+    public IReadOnlyCollection<Flight> Flights => _flights.AsReadOnly();
 
     private Aircraft() { }
 

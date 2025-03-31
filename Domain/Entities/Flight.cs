@@ -4,19 +4,19 @@ namespace Domain.Entities;
 
 public class Flight : Base
 {
-    public DateTime Departure { get; private set; }
-    public DateTime Arrival { get; private set; }
+    public required DateTime Departure { get; init; }
+    public required DateTime Arrival { get; init; }
 
     public Guid FromAirportId { get; private set; }
     public Guid ToAirportId { get; private set; }
     public Guid AircraftId { get; private set; }
 
-    public Airport? FromAirport { get; private set; }
-    public Airport? ToAirport { get; private set; }
-    public Aircraft? Aircraft { get; private set; }
+    public Airport FromAirport { get; private set; } = null!;
+    public Airport ToAirport { get; private set; } = null!;
+    public Aircraft Aircraft { get; private set; } = null!;
 
-    private readonly List<Ticket?> _tickets = [];
-    public IReadOnlyCollection<Ticket?> Tickets => _tickets.AsReadOnly();
+    private readonly List<Ticket> _tickets = [];
+    public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
 
     private Flight() { }
 

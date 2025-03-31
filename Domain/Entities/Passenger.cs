@@ -4,9 +4,9 @@ namespace Domain.Entities;
 
 public class Passenger : Base
 {
-    public string? FullName { get; private set; }
-    public DateOnly DateOfBirth { get; private set; }
-    public string? Passport { get; private set; }
+    public required string FullName { get; init; }
+    public required DateOnly DateOfBirth { get; init; }
+    public required string Passport { get; init; }
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();

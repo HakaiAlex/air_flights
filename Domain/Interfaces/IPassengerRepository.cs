@@ -3,10 +3,10 @@ using Domain.Interfaces.Common;
 
 namespace Domain.Interfaces;
 
-public interface IPassengerRepository : IBaseRepository<Passenger>
+public interface IPassengerRepository : IBaseRepository<Payment>
 {
     Task<string> GetFullNameById(Guid id);
     Task<string> GetPassportById(Guid id);
-    Task<Passenger> GetPassengerByDocumentNumberAsync(string documentNumber);
-    Task<IEnumerable<Passenger>> GetPassengersByUserIdAsync(Guid userId);
+    Task<Payment> GetPassengerByDocumentNumberAsync(string documentNumber);
+    Task<IEnumerable<Payment>> GetPassengersByUserIdAsync(Guid userId);
 }

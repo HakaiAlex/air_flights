@@ -4,11 +4,11 @@ namespace Domain.Entities;
 
 public class Airline : Base
 {
-    public string? Name { get; private set; }
-    public string? Country { get; private set; }
+    public required string Name { get; init; }
+    public required string Country { get; init; }
 
-    private readonly List<Aircraft?> _aircrafts = [];
-    public IReadOnlyCollection<Aircraft?> Aircrafts => _aircrafts.AsReadOnly();
+    private readonly List<Aircraft> _aircrafts = [];
+    public IReadOnlyCollection<Aircraft> Aircrafts => _aircrafts.AsReadOnly();
 
     private Airline() { }
 

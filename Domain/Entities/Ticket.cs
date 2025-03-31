@@ -4,17 +4,19 @@ namespace Domain.Entities;
 
 public class Ticket : Base
 {
-    public int SeatNumber { get; private set; }
-    public decimal Price { get; private set; } = default;
-    public bool IsActive { get; private set; } = default;
+    public required int SeatNumber { get; init; }
+    public required decimal Price { get; init; }
+    public required bool IsActive { get; init; }
 
+    public Guid BookingId { get; private set; }
     public Guid PassengerId { get; private set; }
     public Guid FlightId { get; private set; }
-    public Guid BookingId { get; private set; }
+    public Guid PaymentId { get; private set; }
 
-    public Passenger? Passenger { get; private set; }
-    public Flight? Flight { get; private set; }
-    public Booking? Booking { get; private set; } 
+    public Booking Booking { get; private set; } = null!;
+    public Passenger Passenger { get; private set; } = null!;
+    public Flight Flight { get; private set; } = null!;
+    public Payment Payment { get; private set; } = null!;
 
     private Ticket() { }
 

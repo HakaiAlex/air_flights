@@ -4,11 +4,11 @@ namespace Domain.Entities;
 
 public class User : Base
 {
-    public string? Email { get; private set; }
-    public string? Password { get; private set; }
-    public string? UserName { get; private set; }
-    public string? PhoneNumber { get; private set; }
-    public string? Role { get; private set; }
+    public required string Email { get; init; }
+    public required string Password { get; init; }
+    public required string UserName { get; init; }
+    public required string PhoneNumber { get; init; }
+    public required  string Role { get; init; }
     public DateTime CreatedAt { get; private set; }
 
     private readonly List<Booking> _bookings = [];

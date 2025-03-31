@@ -4,10 +4,10 @@ namespace Domain.Entities;
 
 public class Airport : Base
 {
-    public string? Name { get; private set; }
-    public string? Code { get; private set; }   
-    public string? City { get; private set; }
-    public string? Country { get; private set; }
+    public required string Name { get; init; }
+    public required string Code { get; init; }
+    public required string City { get; init; }
+    public required string Country { get; init; }
 
     private readonly List<Flight> _flights = [];
     public IReadOnlyCollection<Flight> Flights => _flights.AsReadOnly();

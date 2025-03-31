@@ -4,10 +4,10 @@ namespace Domain.Entities;
 
 public class Payment : Base
 {
-    public decimal Amount { get; private set; } = default;
-    public string Status { get; private set; } = string.Empty;
-    public string PaymentMethod { get; private set; } = string.Empty;
-    public DateTime CreatedAt { get; private set; } = default;
+    public required decimal Amount { get; init; }
+    public required string Status { get; init; }
+    public required string PaymentMethod { get; init; }
+    public required DateTime CreatedAt { get; init; }
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
