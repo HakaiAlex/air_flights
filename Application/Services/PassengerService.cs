@@ -5,7 +5,7 @@ using Domain.Interfaces;
 namespace Application.Services;
 
 public class PassengerService(IPassengerRepository passengerRepository) 
-    : BaseService<Payment>(passengerRepository)
+    : BaseService<Passenger>(passengerRepository)
 {
     private readonly IPassengerRepository _passengerRepository = passengerRepository;
 
@@ -15,9 +15,9 @@ public class PassengerService(IPassengerRepository passengerRepository)
     public async Task<string> GetPassportById(Guid id) =>
         await _passengerRepository.GetPassportById(id);
 
-    public async Task<Payment> GetPassengerByDocumentNumberAsync(string documentNumber) =>
+    public async Task<Passenger> GetPassengerByDocumentNumberAsync(string documentNumber) =>
         await _passengerRepository.GetPassengerByDocumentNumberAsync(documentNumber);
 
-    public async Task<IEnumerable<Payment>> GetPassengersByUserIdAsync(Guid userId) =>
+    public async Task<IEnumerable<Passenger>> GetPassengersByUserIdAsync(Guid userId) =>
         await _passengerRepository.GetPassengersByUserIdAsync(userId);
 }
