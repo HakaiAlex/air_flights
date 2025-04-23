@@ -8,8 +8,8 @@ public class AirportConfiguration : IEntityTypeConfiguration<Airport>
 {
     public void Configure(EntityTypeBuilder<Airport> builder)
     {
-        builder.HasKey(a => a.Id);
-        builder.HasIndex(a => a.Id).IsUnique();
+        builder.HasKey(a => a.EntityId);
+        builder.HasIndex(a => a.EntityId).IsUnique();
 
         builder.Property(a => a.Name)
             .IsRequired()

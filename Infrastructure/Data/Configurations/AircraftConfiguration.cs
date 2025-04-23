@@ -8,8 +8,8 @@ public class AircraftConfiguration : IEntityTypeConfiguration<Aircraft>
 {
     public void Configure(EntityTypeBuilder<Aircraft> builder)
     {
-        builder.HasKey(a => a.Id);
-        builder.HasIndex(a => a.Id).IsUnique();
+        builder.HasKey(a => a.EntityId);
+        builder.HasIndex(a => a.EntityId).IsUnique();
 
         builder.Property(a => a.Model)
             .IsRequired()

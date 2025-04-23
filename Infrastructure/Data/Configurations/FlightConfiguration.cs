@@ -8,7 +8,7 @@ public class FlightConfiguration : IEntityTypeConfiguration<Flight>
 {
     public void Configure(EntityTypeBuilder<Flight> builder)
     {
-        builder.HasKey(f => f.Id);
+        builder.HasKey(f => f.EntityId);
 
         builder.Property(f => f.Departure)
             .IsRequired();

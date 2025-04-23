@@ -2,10 +2,10 @@
 
 namespace Domain.Entities;
 
-public class Flight : Base
+public class Flight(Guid id, DateTime departure, DateTime arrival) : BaseEntity<Guid>(id)
 {
-    public required DateTime Departure { get; init; }
-    public required DateTime Arrival { get; init; }
+    public required DateTime Departure { get; init; } = departure;
+    public required DateTime Arrival { get; init; } = arrival;
 
     public Guid FromAirportId { get; private set; }
     public Guid ToAirportId { get; private set; }
@@ -17,15 +17,6 @@ public class Flight : Base
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
-
-    private Flight() { }
-
-    public Flight(DateTime departure, DateTime arrival)
-    {
-        Id = Guid.NewGuid();
-        Departure = departure;
-        Arrival = arrival;
-    }
 
     public void AddTicket(Ticket ticket) 
         => _tickets.Add(ticket ?? throw new ArgumentNullException(nameof(ticket)));

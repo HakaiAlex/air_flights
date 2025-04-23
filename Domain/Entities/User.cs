@@ -2,30 +2,18 @@
 
 namespace Domain.Entities;
 
-public class User : Base
+public class User(Guid id, string email, string password, 
+    string userName, string phoneNumber, string role = "User") : BaseEntity<Guid>(entityId: id)
 {
-    public required string Email { get; init; }
-    public required string Password { get; init; }
-    public required string UserName { get; init; }
-    public required string PhoneNumber { get; init; }
-    public required  string Role { get; init; }
-    public DateTime CreatedAt { get; private set; }
+    public required string Email { get; init; } = email;
+    public required string Password { get; init; } = password;
+    public required string UserName { get; init; } = userName;
+    public required string PhoneNumber { get; init; } = phoneNumber;
+    public required string Role { get; init; } = role;
+    public DateTime CreatedAt { get; private set; } = DateTime.Now;
 
     private readonly List<Booking> _bookings = [];
     public IReadOnlyCollection<Booking> Bookings => _bookings.AsReadOnly();
-
-    private User() { }
-
-    public User(string email, string password, string userName, string phoneNumber, string role = "User")
-    {
-        Id = Guid.NewGuid();
-        Email = email;
-        Password = password;
-        UserName = userName;
-        PhoneNumber = phoneNumber;
-        Role = role;
-        CreatedAt = DateTime.Now;
-    }
 
     public void AddBooking(Booking booking)
         => _bookings.Add(booking ?? throw new ArgumentNullException(nameof(booking)));

@@ -2,11 +2,11 @@
 
 namespace Domain.Entities;
 
-public class Ticket : Base
+public class Ticket(Guid id, int seatNumber, decimal price, bool isActive) : BaseEntity<Guid>(id)
 {
-    public required int SeatNumber { get; init; }
-    public required decimal Price { get; init; }
-    public required bool IsActive { get; init; }
+    public required int SeatNumber { get; init; } = seatNumber;
+    public required decimal Price { get; init; } = price;
+    public required bool IsActive { get; init; } = isActive;
 
     public Guid BookingId { get; private set; }
     public Guid PassengerId { get; private set; }
@@ -17,14 +17,4 @@ public class Ticket : Base
     public Passenger Passenger { get; private set; } = null!;
     public Flight Flight { get; private set; } = null!;
     public Payment Payment { get; private set; } = null!;
-
-    private Ticket() { }
-
-    public Ticket(int seatNumber, decimal price, bool isActive)
-    {
-        Id = Guid.NewGuid();
-        SeatNumber = seatNumber;
-        Price = price;
-        IsActive = isActive;
-    }
 }

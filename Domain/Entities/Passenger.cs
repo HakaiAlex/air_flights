@@ -2,24 +2,14 @@
 
 namespace Domain.Entities;
 
-public class Passenger : Base
+public class Passenger(Guid id, string fullName, DateOnly dateOfBirth, string passport) : BaseEntity<Guid>(id)
 {
-    public required string FullName { get; init; }
-    public required DateOnly DateOfBirth { get; init; }
-    public required string Passport { get; init; }
+    public required string FullName { get; init; } = fullName;
+    public required DateOnly DateOfBirth { get; init; } = dateOfBirth;
+    public required string Passport { get; init; } = passport;
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
-
-    private Passenger() { }
-
-    public Passenger(string fullName, DateOnly dateOfBirth, string passport)
-    {
-        Id = Guid.NewGuid();
-        FullName = fullName;
-        DateOfBirth = dateOfBirth;
-        Passport = passport;
-    }
 
     public void AddTicket(Ticket ticket)
         => _tickets.Add(ticket ?? throw new ArgumentNullException(nameof(ticket)));

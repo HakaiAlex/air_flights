@@ -2,26 +2,15 @@
 
 namespace Domain.Entities;
 
-public class Airport : Base
+public class Airport(Guid id, string name, string code, string city, string country) : BaseEntity<Guid>(id)
 {
-    public required string Name { get; init; }
-    public required string Code { get; init; }
-    public required string City { get; init; }
-    public required string Country { get; init; }
+    public required string Name { get; init; } = name;
+    public required string Code { get; init; } = code;
+    public required string City { get; init; } = city;
+    public required string Country { get; init; } = country;
 
     private readonly List<Flight> _flights = [];
     public IReadOnlyCollection<Flight> Flights => _flights.AsReadOnly();
-
-    private Airport() { }
-
-    public Airport(string name, string code, string city, string country)
-    {
-        Id = Guid.NewGuid();
-        Name = name;
-        Code = code;
-        City = city;
-        Country = country;
-    }
 
     public void AddFlight(Flight flight)
         => _flights.Add(flight ?? throw new ArgumentNullException(nameof(flight)));
