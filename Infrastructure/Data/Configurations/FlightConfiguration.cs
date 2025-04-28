@@ -17,17 +17,17 @@ public class FlightConfiguration : IEntityTypeConfiguration<Flight>
             .IsRequired();
 
         builder.HasOne(f => f.FromAirport)
-            .WithMany()
+            .WithMany(a => a.Departures)
             .HasForeignKey(f => f.FromAirportId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(f => f.ToAirport)
-            .WithMany()
+            .WithMany(a => a.Arrivals)
             .HasForeignKey(f => f.ToAirportId)
             .OnDelete(DeleteBehavior.Restrict);
 
         builder.HasOne(f => f.Aircraft)
-            .WithMany()
+            .WithMany(a => a.Flights)
             .HasForeignKey(f => f.AircraftId)
             .OnDelete(DeleteBehavior.Restrict);
 

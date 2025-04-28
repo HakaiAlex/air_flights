@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250428102332_InitialMigrate")]
-    partial class InitialMigrate
+    [Migration("20250428114821_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -151,15 +151,6 @@ namespace Infrastructure.Migrations
                     b.Property<Guid>("AircraftId")
                         .HasColumnType("uuid");
 
-                    b.Property<Guid?>("AircraftId1")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("AirportId")
-                        .HasColumnType("uuid");
-
-                    b.Property<Guid?>("AirportId1")
-                        .HasColumnType("uuid");
-
                     b.Property<DateTime>("Arrival")
                         .HasColumnType("timestamp with time zone");
 
@@ -175,12 +166,6 @@ namespace Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AircraftId");
-
-                    b.HasIndex("AircraftId1");
-
-                    b.HasIndex("AirportId");
-
-                    b.HasIndex("AirportId1");
 
                     b.HasIndex("FromAirportId");
 
@@ -349,31 +334,19 @@ namespace Infrastructure.Migrations
             modelBuilder.Entity("Domain.Entities.Flight", b =>
                 {
                     b.HasOne("Domain.Entities.Aircraft", "Aircraft")
-                        .WithMany()
+                        .WithMany("Flights")
                         .HasForeignKey("AircraftId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
-                    b.HasOne("Domain.Entities.Aircraft", null)
-                        .WithMany("Flights")
-                        .HasForeignKey("AircraftId1");
-
-                    b.HasOne("Domain.Entities.Airport", null)
-                        .WithMany("Departures")
-                        .HasForeignKey("AirportId");
-
-                    b.HasOne("Domain.Entities.Airport", null)
-                        .WithMany("Arrivals")
-                        .HasForeignKey("AirportId1");
-
                     b.HasOne("Domain.Entities.Airport", "FromAirport")
-                        .WithMany()
+                        .WithMany("Departures")
                         .HasForeignKey("FromAirportId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("Domain.Entities.Airport", "ToAirport")
-                        .WithMany()
+                        .WithMany("Arrivals")
                         .HasForeignKey("ToAirportId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();

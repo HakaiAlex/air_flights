@@ -9,9 +9,9 @@ public class Airport(Guid id, string name, string code, string city, string coun
     public required string City { get; init; } = city;
     public required string Country { get; init; } = country;
 
-    private readonly List<Flight> _departing = new();
+    private readonly List<Flight> _departing = [];
     // Рейсы, прибывающие в этот аэропорт
-    private readonly List<Flight> _arriving = new();
+    private readonly List<Flight> _arriving = [];
 
     public IReadOnlyCollection<Flight> Departures => _departing.AsReadOnly();
     public IReadOnlyCollection<Flight> Arrivals => _arriving.AsReadOnly();
