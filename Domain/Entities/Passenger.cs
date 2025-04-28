@@ -10,10 +10,4 @@ public class Passenger(Guid id, string fullName, DateOnly dateOfBirth, string pa
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
-
-    public void AddTicket(Ticket ticket)
-        => _tickets.Add(ticket ?? throw new ArgumentNullException(nameof(ticket)));
-
-    public void RemoveTicket(Ticket ticket)
-        => _tickets.Remove(ticket ?? throw new ArgumentNullException(nameof(ticket)));
 }

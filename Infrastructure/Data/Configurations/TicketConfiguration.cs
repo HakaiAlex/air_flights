@@ -8,8 +8,8 @@ public class TicketConfiguration : IEntityTypeConfiguration<Ticket>
 {
     public void Configure(EntityTypeBuilder<Ticket> builder)
     {
-        builder.HasKey(t => t.EntityId);
-        builder.HasIndex(t => t.EntityId).IsUnique();
+        builder.HasKey(t => t.Id);
+        builder.HasIndex(t => t.Id).IsUnique();
 
         builder.Property(t => t.SeatNumber)
             .IsRequired();

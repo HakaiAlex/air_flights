@@ -8,8 +8,8 @@ public class AirportConfiguration : IEntityTypeConfiguration<Airport>
 {
     public void Configure(EntityTypeBuilder<Airport> builder)
     {
-        builder.HasKey(a => a.EntityId);
-        builder.HasIndex(a => a.EntityId).IsUnique();
+        builder.HasKey(a => a.Id);
+        builder.HasIndex(a => a.Id).IsUnique();
 
         builder.Property(a => a.Name)
             .IsRequired()
@@ -27,12 +27,12 @@ public class AirportConfiguration : IEntityTypeConfiguration<Airport>
             .IsRequired()
             .HasMaxLength(100);
 
-        builder.HasMany(a => a.Flights)
+        builder.HasMany(a => a.Departures)
             .WithOne(f => f.FromAirport)
             .HasForeignKey(f => f.FromAirportId)
             .OnDelete(DeleteBehavior.Restrict);
 
-        builder.HasMany(a => a.Flights)
+        builder.HasMany(a => a.Arrivals)
             .WithOne(f => f.ToAirport)
             .HasForeignKey(f => f.ToAirportId)
             .OnDelete(DeleteBehavior.Restrict);

@@ -8,7 +8,7 @@ public class PassengerConfiguration : IEntityTypeConfiguration<Passenger>
 {
     public void Configure(EntityTypeBuilder<Passenger> builder)
     {
-        builder.HasKey(p => p.EntityId);
+        builder.HasKey(p => p.Id);
 
         builder.Property(p => p.FullName)
             .IsRequired()

@@ -8,8 +8,8 @@ public class UserConfiguration : IEntityTypeConfiguration<User>
 {
     public void Configure(EntityTypeBuilder<User> builder)
     {
-        builder.HasKey(u => u.EntityId);
-        builder.HasIndex(u => u.EntityId).IsUnique();
+        builder.HasKey(u => u.Id);
+        builder.HasIndex(u => u.Id).IsUnique();
 
         builder.Property(u => u.UserName)
             .IsRequired()

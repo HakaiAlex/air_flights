@@ -10,7 +10,7 @@ public class AircraftRepository(DbContext dbContext) : BaseRepository<Aircraft>(
     public async Task<Aircraft> GetAircraftByFlightIdAsync(Guid flightId)
     {
         return await _context.Set<Aircraft>()
-            .FirstOrDefaultAsync(a => a.Flights.Any(f => f!.EntityId == flightId))
+            .FirstOrDefaultAsync(a => a.Flights.Any(f => f!.Id == flightId))
             ?? throw new KeyNotFoundException($"Aircraft for FlightId {flightId} was not found.");
     }
 

@@ -1,5 +1,4 @@
-﻿using Application.Services;
-using Domain.Interfaces;
+﻿using Domain.Interfaces;
 using Infrastructure.Data;
 using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
@@ -13,14 +12,14 @@ public static class DependencyInjection
 {
     public static IServiceCollection AddInfrastructureServices(this IServiceCollection services, IConfiguration configuration)
     {
-        var connectionString = configuration.GetConnectionString("ApplicationDbContext");
+        var connectionString = configuration.GetConnectionString("DefaultConnection");
 
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options
-                .UseNpgsql(connectionString)
-                .UseLoggerFactory(CreateLoggerFactory())
-                .EnableSensitiveDataLogging();
+                .UseNpgsql(connectionString);
+                //.UseLoggerFactory(CreateLoggerFactory())
+                //.EnableSensitiveDataLogging();
         });
 
         services.AddScoped<IUserRepository, UserRepository>();

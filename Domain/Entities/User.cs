@@ -14,10 +14,4 @@ public class User(Guid id, string email, string password,
 
     private readonly List<Booking> _bookings = [];
     public IReadOnlyCollection<Booking> Bookings => _bookings.AsReadOnly();
-
-    public void AddBooking(Booking booking)
-        => _bookings.Add(booking ?? throw new ArgumentNullException(nameof(booking)));
-
-    public void RemoveBooking(Booking booking)
-        => _bookings.Remove(booking ?? throw new ArgumentNullException(nameof(booking)));
 }

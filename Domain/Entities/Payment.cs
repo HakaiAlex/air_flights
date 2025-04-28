@@ -11,10 +11,4 @@ public class Payment(Guid id, decimal amount, string status, string paymentMetho
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
-
-    public void AddTicket(Ticket ticket)
-        => _tickets.Add(ticket ?? throw new ArgumentNullException(nameof(ticket)));
-
-    public void RemoveTicket(Ticket ticket)
-        => _tickets.Remove(ticket ?? throw new ArgumentNullException(nameof(ticket)));
 }

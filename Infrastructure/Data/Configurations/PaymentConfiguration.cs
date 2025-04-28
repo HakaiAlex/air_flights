@@ -8,7 +8,7 @@ public class PaymentConfiguration : IEntityTypeConfiguration<Payment>
 {
     public void Configure(EntityTypeBuilder<Payment> builder)
     {
-        builder.HasKey(p => p.EntityId);
+        builder.HasKey(p => p.Id);
 
         builder.Property(p => p.Amount)
             .IsRequired()

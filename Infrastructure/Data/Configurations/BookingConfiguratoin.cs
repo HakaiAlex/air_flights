@@ -9,8 +9,8 @@ public class BookingConfiguratoin : IEntityTypeConfiguration<Booking>
 {
     public void Configure(EntityTypeBuilder<Booking> builder)
     {
-        builder.HasKey(b => b.EntityId);
-        builder.HasIndex(b => b.EntityId).IsUnique();
+        builder.HasKey(b => b.Id);
+        builder.HasIndex(b => b.Id).IsUnique();
 
         builder.Property(b => b.FullName)
             .IsRequired()

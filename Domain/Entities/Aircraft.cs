@@ -12,10 +12,4 @@ public class Aircraft(Guid id, string model, int capacity) : BaseEntity<Guid>(id
 
     private readonly List<Flight> _flights = [];
     public IReadOnlyCollection<Flight> Flights => _flights.AsReadOnly();
-
-    public void AddFlight(Flight flight)
-        => _flights.Add(flight ?? throw new ArgumentNullException(nameof(flight)));
-
-    public void RemoveFlight(Flight flight)
-        => _flights.Remove(flight ?? throw new ArgumentNullException(nameof(flight)));
 }

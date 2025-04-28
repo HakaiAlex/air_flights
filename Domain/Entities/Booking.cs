@@ -13,10 +13,4 @@ public class Booking(Guid id, string fullName, string status, DateTime createdAt
 
     private readonly List<Ticket> _tickets = [];
     public IReadOnlyCollection<Ticket> Tickets => _tickets.AsReadOnly();
-
-    public void AddTicket(Ticket ticket) 
-        => _tickets.Add(ticket ?? throw new ArgumentNullException(nameof(ticket)));
-
-    public void RemoveTicket(Ticket ticket)
-        => _tickets.Remove(ticket ?? throw new ArgumentNullException(nameof(ticket)));
 }

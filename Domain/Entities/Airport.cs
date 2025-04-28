@@ -9,12 +9,10 @@ public class Airport(Guid id, string name, string code, string city, string coun
     public required string City { get; init; } = city;
     public required string Country { get; init; } = country;
 
-    private readonly List<Flight> _flights = [];
-    public IReadOnlyCollection<Flight> Flights => _flights.AsReadOnly();
+    private readonly List<Flight> _departing = new();
+    // Рейсы, прибывающие в этот аэропорт
+    private readonly List<Flight> _arriving = new();
 
-    public void AddFlight(Flight flight)
-        => _flights.Add(flight ?? throw new ArgumentNullException(nameof(flight)));
-
-    public void RemoveFlights(Flight flight)
-        => _flights.Remove(flight ?? throw new ArgumentNullException(nameof(flight)));
+    public IReadOnlyCollection<Flight> Departures => _departing.AsReadOnly();
+    public IReadOnlyCollection<Flight> Arrivals => _arriving.AsReadOnly();
 }
